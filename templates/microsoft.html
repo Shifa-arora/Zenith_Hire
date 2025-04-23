@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+
+
+{% block style %}
+<style>
+    /* General body and layout */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+
+    /* Spacing for the content section, ensuring there's space between navbar and footer */
+    .job-details {
+        padding: 40px;
+        background-color: #fff;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Main Content Section */
+    .main-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Section styles for each part */
+    .job-info-section,
+    .basic-details-section,
+    .requirements-section,
+    .qualifications-section,
+    .skills-section,
+    .description-section,
+    .buttons-section {
+        margin-bottom: 30px;
+    }
+
+    /* Headings */
+    h1.heading {
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+
+    h3 {
+        font-size: 25px;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    /* Job Info Section */
+    .job-info-section p {
+        font-size: 18px;
+        color: #777;
+    }
+
+    .job-info-section i {
+        color: #007BFF;
+        margin-right: 10px;
+    }
+
+ 
+
+    /* Basic Details Section */
+    .basic-details-section {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+    }
+
+
+    .basic-details-section p {
+        font-size: 16px;
+        color: #555;
+    }
+
+    /* Requirements and Qualifications Sections */
+    ul {
+        margin-left: 20px;
+    }
+
+    ul h3 {
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    ul li {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    ul li span {
+        color: #007BFF;
+    }
+
+    /* Job Description Section */
+    .description-section p {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 10px;
+    }
+
+    .description-section ul li {
+        font-size: 16px;
+        color: #555;
+    }
+
+    /* Buttons and Links */
+    .flex-btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .btn {
+        background-color: #007BFF;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+
+    .save {
+        background-color: #fff;
+        border: 2px solid #007BFF;
+        color: #007BFF;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .save:hover {
+        background-color: #007BFF;
+        color: #fff;
+    }
+
+    .save i {
+        margin-right: 10px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1 class="heading" style="color:#fff;font-size: 30px;">job details</h1>
+
+<section class="job-details">
+    <div class="main-content">
+        <!-- Job Info Section -->
+        <div class="job-info-section">
+            <h3>Senior System Engineer</h3>
+            <p><i class="fas fa-map-marker-alt"></i>Bengaluru, India</p>
+        </div>
+
+        <!-- Basic Details Section -->
+        <div class="basic-details-section">
+            <p><i class="fas fa-indian-rupee-sign"></i><span>35k - 50k</span></p>
+            <p><i class="fas fa-briefcase"></i><span>full-time</span></p>
+            <p><i class="fas fa-clock"></i><span>day-shift</span></p>
+        </div>
+
+        <!-- Requirements Section -->
+        <div class="requirements-section">
+            <h3>Requirements</h3>
+            <ul>
+                <li>Education : <span>graduate</span></li>
+                <li>Age : <span>23+</span></li>
+                <li>Language : <span>hindi, english</span></li>
+                <li>Experience : <span>4+ years</span></li>
+            </ul>
+        </div>
+
+        <!-- Qualifications Section -->
+        <div class="qualifications-section">
+            <h3>Qualifications</h3>
+            <ul>
+                <li>Bachelor's (Preferred)</li>
+                <li>PHP : 1 year (Preferred)</li>
+                <li>system design : 1 year (Preferred)</li>
+                <li>WordPress : 1 year (Preferred)</li>
+                <li>total work : 3 years (required)</li>
+            </ul>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="skills-section">
+            <h3>Skills</h3>
+            <ul>
+                <li>System Architecture & Design</li>
+                <li>Cloud Computing (AWS, Azure, GCP)</li>
+                <li>Networking & Security</li>
+                <li>Scripting & Automation (Python, Bash, PowerShell)</li>
+                <li>Operating Systems (Linux & Windows)</li>
+                <li>Database Management (SQL & NoSQL)</li>
+                <li>DevOps & CI/CD (Jenkins, Git, Docker, Kubernetes)</li>
+                <li>Infrastructure as Code (Terraform, Ansible, Puppet)</li>
+            </ul>
+        </div>
+
+        <!-- Job Description Section -->
+        <div class="description-section">
+            <h3>Job Description</h3>
+            <p>We are looking for a highly skilled Senior System Engineer to design, implement, and maintain scalable IT
+                infrastructure. You will work with cloud technologies, automation tools, and security frameworks to
+                ensure system reliability and efficiency.</p>
+        </div>
+
+        <!-- Apply and Save Buttons -->
+        <div class="buttons-section">
+            <form action="" method="post" class="flex-btn">
+                <a href="https://www.amazon.jobs/content/en/job-categories/data-science" class="btn"
+                    target="_blank">apply now</a>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
