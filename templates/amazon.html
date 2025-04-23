@@ -1,0 +1,230 @@
+{% extends 'base.html' %}
+
+{% block style %}
+<style>
+    /* General body and layout */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+
+    /* Spacing for the content section, ensuring there's space between navbar and footer */
+    .job-details {
+        padding: 40px;
+        background-color: #fff;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Main Content Section */
+    .main-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Section styles for each part */
+    .job-info-section,
+    .basic-details-section,
+    .requirements-section,
+    .qualifications-section,
+    .skills-section,
+    .description-section,
+    .buttons-section {
+        margin-bottom: 30px;
+    }
+
+    /* Headings */
+    h1.heading {
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+
+    h3 {
+        font-size: 25px;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    /* Job Info Section */
+    .job-info-section p {
+        font-size: 18px;
+        color: #777;
+    }
+
+    .job-info-section i {
+        color: #007BFF;
+        margin-right: 10px;
+    }
+
+    /* Basic Details Section */
+    .basic-details-section {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        flex-wrap: wrap;
+    }
+
+
+
+    /* Requirements and Qualifications Sections */
+    ul {
+        margin-left: 20px;
+    }
+
+    ul h3 {
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    ul li {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    ul li span {
+        color: #007BFF;
+    }
+
+    /* Job Description Section */
+    .description-section p {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 10px;
+    }
+
+    .description-section ul li {
+        font-size: 16px;
+        color: #555;
+    }
+
+    /* Buttons and Links */
+    .flex-btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .btn {
+        background-color: #007BFF;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+
+    .save {
+        background-color: #fff;
+        border: 2px solid #007BFF;
+        color: #007BFF;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .save:hover {
+        background-color: #007BFF;
+        color: #fff;
+    }
+
+    .save i {
+        margin-right: 10px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1 style="color:#fff;font-size: 30px;text-align: center;">Data Scientist</h1>
+
+<section class="job-details">
+    <div class="main-content">
+        <!-- Job Info Section -->
+        <div class="job-info-section">
+            <a href="view_company.html">IT Infotech Co.</a>
+            <p><i class="fas fa-map-marker-alt"></i>Noida, India</p>
+        </div>
+
+        <!-- Basic Details Section -->
+        <div class="basic-details-section">
+            <p><i class="fas fa-indian-rupee-sign"></i><span>35k - 50k</span></p>
+            <p><i class="fas fa-briefcase"></i><span>full-time</span></p>
+            <p><i class="fas fa-clock"></i><span>day-shift</span></p>
+        </div>
+
+        <!-- Requirements Section -->
+        <div class="requirements-section">
+            <h3>Requirements</h3>
+            <ul>
+                <li>Education : <span>graduate</span></li>
+                <li>Age : <span>25+</span></li>
+                <li>Language : <span>hindi, english</span></li>
+                <li>Experience : <span>3+ years</span></li>
+            </ul>
+        </div>
+
+        <!-- Qualifications Section -->
+        <div class="qualifications-section">
+            <h3>Qualifications</h3>
+            <ul>
+                <li>Bachelor's (Preferred)</li>
+                <li>PHP : 1 year (Preferred)</li>
+                <li>System design : 1 year (Preferred)</li>
+                <li>WordPress : 1 year (Preferred)</li>
+                <li>Total work : 3 years (required)</li>
+            </ul>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="skills-section">
+            <h3>Skills</h3>
+            <ul>
+                <li>Python & R – Programming languages for data analysis and machine learning.</li>
+                <li>SQL – Querying databases to extract and manipulate data.</li>
+                <li>Machine Learning – Supervised & unsupervised learning, model tuning.</li>
+                <li>Statistics & Probability – Hypothesis testing, distributions, and statistical analysis.</li>
+                <li>Data Visualization – Matplotlib, Seaborn, Tableau, Power BI.</li>
+                <li>Big Data Tools – Hadoop, Spark, Google Cloud, AWS.</li>
+                <li>Data Wrangling – Cleaning and preprocessing raw data.</li>
+                <li>Business & Communication Skills – Presenting insights to stakeholders.</li>
+            </ul>
+        </div>
+
+        <!-- Job Description Section -->
+        <div class="description-section">
+            <h3>Job Description</h3>
+            <p>As a Data Science Lead, you’ll manage a team of scientists working in the media measurement space.
+                Your primary focus will be guiding scientific approach in developing and deploying advanced
+                marketing measurement models (e.g., lifetime value, media mix). You will also lead Audible's scaled
+                experimentation program, maintaining scientific integrity in global paid media experiments and
+                guiding meta-analytical work to assess program health. Additionally, you will serve as the primary
+                scientific contact for third-party media partners (Meta, Google), collaborating with them on new
+                measurement approaches. You'll work with Audible marketers to translate sophisticated scientific
+                methodologies into actionable business strategies, ultimately driving more effective marketing
+                investments.</p>
+        </div>
+
+        <!-- Apply and Save Buttons -->
+        <div class="buttons-section">
+            <form action="" method="post" class="flex-btn">
+                <a href="https://www.amazon.jobs/content/en/job-categories/data-science" class="btn"
+                    target="_blank">Apply Now</a>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
