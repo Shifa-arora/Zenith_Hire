@@ -1,0 +1,280 @@
+{% extends 'base.html' %}
+
+
+{% block style %}
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #212a36;
+        color: #fff;
+    }
+
+    /* About Us, Vision, Mission, Values Sections */
+    .content-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        margin-top:30px;
+        padding: 60px 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        color: #212a36;
+        margin-bottom: 50px;
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .content-container h2,
+    .content-container h3 {
+        font-size: 40px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+    }
+
+    .content-container p {
+        font-size: 18px;
+        line-height: 1.8;
+        color: #212a36;
+        margin: 20px 0;
+        text-align: justify;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Founder Boxes */
+    .founders-container {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        margin-bottom: 50px; 
+    }
+
+    .founder-box {
+        background-color: #f4f4f4;
+        width: 250px;
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .founder-box img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 20px;
+    }
+
+    .founder-box h3 {
+        font-size: 22px;
+        color: #212a36; 
+        margin-top: 10px;
+    }
+
+    .founder-box p {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 10px;
+    }
+
+    .social-links a {
+        color: #212a36; 
+        font-size: 24px;
+        margin: 10px;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+        color: #f4b400;
+    }
+
+    /* Founder box visible */
+    .founder-box.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+  
+    @media (max-width: 768px) {
+        .founders-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .founder-box {
+            width: 80%;
+            margin-bottom: 20px;
+        }
+    }
+
+
+</style>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block content %}
+
+<!-- About Us Section -->
+<section class="content-container">
+    <h2><strong>About Us</strong></h2>
+    <p>Zenith Hire is an innovative platform that connects exceptional talent with forward-thinking companies. Founded with a mission to revolutionize the job search process, our platform offers a seamless, efficient, and intuitive way for job seekers to discover career opportunities while helping employers find the right candidates to fit their teams.</p>
+
+    <p>We are a group of passionate professionals driven by the goal of creating a better future for the workforce. Our platform allows job seekers to explore a wide variety of job listings, while employers can access a curated pool of candidates that perfectly match their needs. Whether you're looking to take the next step in your career or build a winning team, Zenith Hire has got you covered.</p>
+
+    
+    <p>At Zenith Hire, we care about the success of our users. Our dedicated customer support team is always ready to assist job seekers and employers, making sure that their experience on our platform is smooth and hassle-free.</p>
+</section>
+
+<!-- Vision Section -->
+<section class="content-container">
+    <h3>Our Vision</h3>
+    <p>Our vision is to become the most trusted platform for connecting employers and job seekers. We aim to transform the hiring process by making it more transparent, seamless, and rewarding for everyone involved. We want to redefine the recruitment process, ensuring that every candidate and employer finds the perfect match, and every career opportunity leads to growth and success.</p>
+</section>
+
+<!-- Mission Section -->
+<section class="content-container">
+    <h3>Our Mission</h3>
+    <p>We strive to empower job seekers by providing them with meaningful work opportunities and helping employers discover the right talent. Through constant innovation and a commitment to excellence, we aim to continuously enhance the job search and hiring experience. Our goal is to make the process as easy, efficient, and transparent as possible for all parties involved.</p>
+</section>
+
+<!-- Values Section -->
+<section class="content-container">
+    <h3>Our Values</h3>
+    <p>At Zenith Hire, we believe in integrity, transparency, and innovation. These core values are the foundation of everything we do. We work hard to ensure that every interaction on our platform reflects these values, whether it's job seekers searching for their next opportunity or employers building their teams. Our commitment to collaboration and continuous improvement drives us to always deliver the best experience for everyone who uses Zenith Hire.</p>
+</section>
+
+<!-- Founders Section -->
+<section class="founders-container">
+    <!-- Founder 1: Jaismeen Kaur -->
+    <div class="founder-box">
+        <img src="{{url_for('static',filename='images/jaismeen.png')}}" alt="Jaismeen Kaur">
+        <div>
+            <h3>Jaismeen Kaur</h3>
+            <p>Founder & CEO</p>
+            <div class="social-links">
+                <a href="https://twitter.com/JaismeenKaur" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/JaismeenKaur" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:jaismeen@zenithhire.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Founder 2: Manmeet Kaur -->
+    <div class="founder-box">
+        <img src="{{url_for('static',filename='images/manmeet.png')}}" alt="Manmeet Kaur">
+        <div>
+            <h3>Manmeet Kaur</h3>
+            <p>Co-Founder & CTO</p>
+            <div class="social-links">
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:manmeet@zenithhire.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Founder 3: Aarti -->
+    <div class="founder-box">
+        <img src="{{url_for('static',filename='images/aarti.png')}}" alt="Aarti Thakur">
+        <div>
+            <h3>Aarti Thakur</h3>
+            <p>Co-Founder & COO</p>
+            <div class="social-links">
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:aarti@zenithhire.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Founder 4: Mohit Singh Takuli -->
+    <div class="founder-box">
+        <img src="{{url_for('static',filename='images/mohit.png')}}" alt="Mohit Singh Takuli">
+        <div>
+            <h3>Mohit Singh Takuli</h3>
+            <p>Co-Founder & CMO</p>
+            <div class="social-links">
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:mohit@zenithhire.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block script %}
+
+
+<script>
+    
+    const founderCards = document.querySelectorAll('.founder-box');
+    window.addEventListener('scroll', () => {
+        const triggerBottom = window.innerHeight / 5 * 4;
+        founderCards.forEach(card => {
+            const cardTop = card.getBoundingClientRect().top;
+            if (cardTop < triggerBottom) {
+                card.classList.add('visible');
+            }
+        });
+    });
+</script>
+
+
+{% endblock %}
