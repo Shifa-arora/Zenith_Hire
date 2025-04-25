@@ -1,0 +1,662 @@
+{% extends 'base.html' %}
+
+{% block style %}
+
+<style>
+    /* hero section */
+    .hero {
+        display: flex;
+        align-items: center;
+        height: 60vh;
+    }
+
+    .hero-content {
+        width: 50%;
+        padding: 2rem;
+        color: white;
+    }
+
+    .hero-image {
+        width: 40%;
+        height: 40vh;
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+
+
+
+
+
+
+    /* partners */
+    .partners {
+        text-align: center;
+        padding: 50px 0;
+    }
+
+    .partners h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .logos-wrapper {
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .logos-container {
+        display: flex;
+        align-items: center;
+        animation: moveLogos 10s infinite alternate;
+    }
+
+    .partner-logo {
+        margin: 0 15px;
+    }
+
+    .partner-logo img {
+        width: 120px;
+        height: 80px;
+        object-fit: contain;
+    }
+
+
+    @keyframes moveLogos {
+        0% {
+            transform: translateX(0);
+        }
+
+        25% {
+            transform: translateX(10px);
+        }
+
+        50% {
+            transform: translateX(0);
+        }
+
+        75% {
+            transform: translateX(10px);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+
+
+
+
+
+
+    /* about us */
+    #about-us {
+        background-color: #202936;
+        padding: 50px;
+        color: white;
+    }
+
+    .about-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo-container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #logo {
+        width: 200px;
+        height: 100%;
+    }
+
+    .text-container {
+        flex: 2;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    .text-container h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .text-container p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+
+
+
+
+
+
+    /* services */
+    .services {
+        text-align: center;
+        padding: 50px 20px;
+        /* background-color: #fff; */
+    }
+
+    .services h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: #fff;
+    }
+
+    .services-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    .service-card {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        text-align: center;
+    }
+
+    .service-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .service-card i {
+        font-size: 2.5em;
+        color: #007BFF;
+        margin-bottom: 10px;
+    }
+
+    .service-card h3 {
+        font-size: 1.5em;
+        color: #333;
+    }
+
+    .service-card p {
+        color: #666;
+        font-size: 1em;
+    }
+
+
+
+
+
+
+
+    /* portfolio */
+    .portfolio {
+        text-align: center;
+        padding: 50px 20px;
+    }
+
+    .portfolio h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: #fff;
+    }
+
+    .portfolio-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    .portfolio-item {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .portfolio-item img {
+        width: 100%;
+        border-radius: 10px;
+        height: auto;
+    }
+
+    .portfolio-item h3 {
+        font-size: 1.5em;
+        color: #333;
+        margin-top: 10px;
+    }
+
+    .portfolio-item p {
+        color: #666;
+        font-size: 1em;
+    }
+
+
+
+
+
+
+    /* QNA */
+    .services,
+    .portfolio,
+    .qna {
+        padding: 50px 10%;
+        margin-bottom: 20px;
+        border-radius: 8px;
+    }
+
+    .services-container,
+    .portfolio-container,
+    .qna-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .service-card,
+    .portfolio-item,
+    .question {
+        background-color: #fff;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        flex: 1 1 300px;
+    }
+
+    .service-card i,
+    .portfolio-item img {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+
+    .portfolio-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .ask-question {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .ask-question form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ask-question input {
+        width: 80%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .ask-question button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .ask-question button:hover {
+        background-color: #0056b3;
+    }
+
+
+
+
+
+
+    /* tetsimonials */
+    .testimonials {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 40px;
+        background-color: #202936;
+        /* Updated background color */
+    }
+
+    .testimonial {
+        width:60%;
+        height:25%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #c7c4c4;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial:hover{
+        box-shadow:0 15px 15px rgb(0, 0, 0, 1);
+        background-color: #f4ecec;
+    }
+
+    .testimonial-text {
+        max-width: 50%;
+        color: #333;
+    }
+
+    .testimonial-text p {
+        margin: 5px 0;
+    }
+
+    .name {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    .location {
+        font-size: 0.9em;
+        color: #777;
+    }
+
+    .testimonial-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+    }
+
+    .rounded-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .testimonial-image img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+</style>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block content %}
+
+<!-- hero section -->
+<section class="hero relative w-full h-[60vh] flex items-center">
+    <div class="hero-content w-1/2 p-8 text-white">
+        <h1 class="text-4xl font-bold mb-4">Welcome to ZenithHire</h1>
+        <p class="text-lg mb-6">Connecting talented students with top recruiters. Start your journey today!</p>
+        <a href="{{url_for('who_are_you')}}"
+            class="bg-blue-500 text-white py-2 px-4 rounded-lg text-xl hover:bg-blue-600 transition">Get Started</a>
+    </div>
+
+    <div class="hero-image" style="height:100%;">
+        <img src="{{url_for('static',filename='images/home.gif')}}" alt="student recruiter"
+            class="w-full h-full object-cover" height="100%"/>
+    </div>
+</section>
+
+
+
+
+
+
+
+<!-- Partner Logos Section -->
+<section class="partners bg-gray-100 py-10">
+    <div class="container mx-auto px-4">
+        <h2 class="text-center text-2xl font-bold mb-8">Our Trusted Partners</h2>
+        <div class="logos-wrapper overflow-hidden relative">
+            <div class="logos-container flex animate-slide">
+
+                <div class="partner-logo">
+                    <img src="https://tse2.mm.bing.net/th?id=OIP.arezqGrVeKUAmuKTaXGGEgHaEK&pid=Api&P=0&h=180"
+                        alt="Google" class="h-12">
+                </div>
+                <div class="partner-logo">
+                    <img src="https://i.pinimg.com/originals/01/ca/da/01cada77a0a7d326d85b7969fe26a728.jpg" alt="Amazon"
+                        class="h-12">
+                </div>
+                <div class="partner-logo">
+                    <img src="https://tse3.mm.bing.net/th?id=OIP.zKJhnhtnKTj_9I--GATiqAHaEP&pid=Api&P=0&h=180"
+                        alt="Infosys" class="h-12">
+                </div>
+
+                <div class="partner-logo">
+                    <img src="https://tse3.mm.bing.net/th?id=OIP.Y832vt01HvoSBcbOCQnAigHaEh&pid=Api&P=0&h=180"
+                        alt="Tata" class="h-12">
+                </div>
+                <div class="partner-logo">
+                    <img src="https://tse2.mm.bing.net/th?id=OIP.0Eb1VUFSOSpcwYlahbfHLAHaHa&pid=Api&P=0&h=180"
+                        alt="Microsoft" class="h-12">
+                </div>
+                <div class="partner-logo">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.sWSPghjzvfUYfQpqXbo37wHaIo&pid=Api&P=0&h=180"
+                        alt="Apple" class="h-12">
+                </div>
+                <div class="partner-logo">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.aYVbqEFb2M-SWsBh_LafIQHaHa&pid=Api&P=0&h=180"
+                        alt="Facebook">
+                </div>
+                <div class="partner-logo">
+                    <img src="https://tse2.mm.bing.net/th?id=OIP.mE32TkR-yeG0iVCX94iavwHaEK&pid=Api&P=0&h=180"
+                        alt="IBM">
+                </div>
+                <div class="partner-logo">
+                    <img src="https://tse1.mm.bing.net/th?id=OIP.6XgzPwXD7yAoDh5MHUebdwHaB8&pid=Api&P=0&h=180"
+                        alt="Accenture">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+<!-- About Us Section -->
+<section id="about-us">
+    <div class="about-container">
+        <div class="logo-container">
+            <img src="{{url_for('static' ,filename='images/logo.png')}}" alt="ZenithHire Logo" id="logo">
+        </div>
+        <div class="text-container">
+            <h2>About Us</h2>
+            <p>
+                ZenithHire is a comprehensive job portal designed to connect employers with job seekers in an intuitive,
+                efficient manner. Our mission is to provide a seamless platform for professionals to discover new career
+                opportunities, enhance their skills, and grow their professional networks. We understand the importance
+                of a great match between candidates and employers, which is why we offer advanced search filters,
+                personalized recommendations, and a user-friendly interface. Whether you're an individual looking for
+                your dream job or a company searching for top talent, ZenithHire makes the process easy, effective, and
+                impactful.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+<!-- services -->
+<section class="services">
+    <h2>Our Services</h2>
+    <div class="services-container">
+        <div class="service-card">
+            <i class="fas fa-search"></i>
+            <h3>Smart Job Matching</h3>
+            <p>AI-driven matching based on skills, experience, and preferences.</p>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-file-alt"></i>
+            <h3>Resume Builder</h3>
+            <p>Create and optimize your resume with AI-driven suggestions.</p>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-bell"></i>
+            <h3>Instant Job Alerts</h3>
+            <p>Get notified about the latest job opportunities in real time.</p>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-handshake"></i>
+            <h3>Networking</h3>
+            <p>Connect with employers and industry professionals easily.</p>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-graduation-cap"></i>
+            <h3>Career Guidance</h3>
+            <p>Access career coaching, interview tips, and skill development resources.</p>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-chart-line"></i>
+            <h3>Analytics & Insights</h3>
+            <p>Track your job applications and interview progress effectively.</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+<!-- portfolio -->
+<section class="portfolio">
+    <h2>Our Portfolio</h2>
+    <div class="portfolio-container">
+        <div class="portfolio-item">
+            <img src="https://oakter.com/wp-content/uploads/2022/03/8-Unique-Corporate-Gift-Ideas-That-Will-Make-Your-Employees-Happier-1.jpg" alt="Successful Placement">
+            <h3>Asher - Hired at google</h3>
+            <p>Successfully placed as a Software Engineer.</p>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://cdn.prod.website-files.com/63f6e52346a353ca1752970e/644fb7a564b6606e4e19dcf8_20230501T1259-f0aff0ab-6aef-4f8a-b039-fad01f658205.jpeg" alt="Featured Employer">
+            <h3>Microsoft - Hiring Success</h3>
+            <p>Helped Microsoft find top talent in record time.</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+<!-- QNA -->
+<section class="qna">
+    <h2 style="color:#fff;text-align: center; font-size: 30px; margin-bottom:20px;">Frequently Asked Questions</h2>
+    <div class="qna-container">
+        <div class="question">
+            <h3>How do I create an account?</h3>
+            <p>You can create an account by clicking on the "Get Started" button and filling in the required details.
+            </p>
+        </div>
+        <div class="question">
+            <h3>Is ZenithHire free to use?</h3>
+            <p>Yes, job seekers can use ZenithHire for free. Employers may have premium options available.</p>
+        </div>
+        <div class="question">
+            <h3>How can I contact support?</h3>
+            <p>You can reach out to our support team through the "Contact Us" page or email us at
+                support@zenithhire.com.</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+<!-- Testimonials -->
+<section class="testimonials">
+    <h2 style="color:#fff;text-align: center; font-size: 30px; margin-bottom:20px;">Customer Experiences That Inspire Us</h2>
+    <div class="testimonial">
+        <div class="testimonial-text">
+            <p>"ZenithHire helped me land my dream job! The platform connects you with top employers, making job hunting
+                so much easier. Highly recommend!"</p>
+            <p class="name">Alia Gupta</p>
+            <p class="location">India</p>
+        </div>
+        <div class="testimonial-image">
+            <img src="https://globalventuring.com//content/uploads/2023/03/Sonam-Jain-landscape.png" alt="Alia Gupta" class="rounded-img">
+        </div>
+    </div>
+
+    <div class="testimonial">
+        <div class="testimonial-text">
+            <p>"I found not only a job but also a community. ZenithHire provides great resources to help you build your
+                career and stay connected with industry professionals."</p>
+            <p class="name">Alisha Watts</p>
+            <p class="location">Canada</p>
+        </div>
+        <div class="testimonial-image">
+            <img src="https://www.irealife.com/cdn/shop/articles/How_To_Dress_Formal_for_Women.jpg?v=1718109380" alt="Alisha Watts" class="rounded-img">
+        </div>
+    </div>
+
+    <div class="testimonial">
+        <div class="testimonial-text">
+            <p>"ZenithHire made my job search so much easier with its tailored job recommendations and easy-to-use
+                interface. I found a perfect match within weeks!"</p>
+            <p class="name">Yuvraj Singh</p>
+            <p class="location">India</p>
+        </div>
+        <div class="testimonial-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiEQOcT5y2-inLu1h-bTUByw_o-iP1nMLEfw&s" alt="yuvraj singh" class="rounded-img">
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
