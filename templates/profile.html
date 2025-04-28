@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenith Hire - Profile</title>
+    <style>
+        :root {
+            --primary: #0056b3;
+            --secondary: #003366;
+            --accent: #ff7f00;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --success: #28a745;
+            --info: #17a2b8;
+            --warning: #ffc107;
+            --danger: #dc3545;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        .profile-section {
+            display: flex;
+            margin-top: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .profile-sidebar {
+            width: 300px;
+            background: var(--primary);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin-bottom: 20px;
+        }
+
+        .profile-name {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .profile-title {
+            color: #ddd;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .profile-stats {
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            margin-bottom: 15px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .stat-value {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .profile-content {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 10px;
+        }
+
+        .about-text {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .skill-tag {
+            background-color: var(--light);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--dark);
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .item-title {
+            font-weight: bold;
+            font-size: 18px;
+            color: var(--primary);
+        }
+
+        .item-date {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .item-subtitle {
+            font-weight: 500;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .item-description {
+            color: #555;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--primary);
+        }
+
+        .contact-text {
+            flex: 1;
+        }
+
+        .contact-label {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .contact-value {
+            font-weight: 500;
+        }
+
+        .edit-profile-btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .edit-profile-btn:hover {
+            background-color: #e67300;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+            }
+            
+            .profile-sidebar {
+                width: 100%;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">ZENITH<span>HIRE</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Jobs</a></li>
+                    <li><a href="#">Candidates</a></li>
+                    <li><a href="#">Messages</a></li>
+                    <li><a href="#" class="active">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="profile-section">
+            <div class="profile-sidebar">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile Picture" class="profile-pic">
+                <h2 class="profile-name">Michael Johnson</h2>
+                <p class="profile-title">Senior Software Engineer</p>
+                
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <div class="stat-label">Profile Completion</div>
+                        <div class="stat-value">85%</div>
+                        <div class="progress-bar" style="background-color: #eee; height: 5px; margin-top: 5px; border-radius: 5px;">
+                            <div style="background-color: var(--accent); width: 85%; height: 100%; border-radius: 5px;"></div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Jobs Applied</div>
+                        <div class="stat-value">24</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Interviews</div>
+                        <div class="stat-value">8</div>
+                    </div>
+                </div>
+                
+                <button class="edit-profile-btn" id="editProfileBtn">Edit Profile</button>
+            </div>
+            
+            <div class="profile-content">
+                <h3 class="section-title">About</h3>
+                <p class="about-text">
+                    Experienced Senior Software Engineer with over 8 years of expertise in full-stack development. 
+                    Specialized in JavaScript frameworks (React, Angular, Node.js) and cloud technologies. 
+                    Passionate about creating scalable, efficient, and user-friendly applications. 
+                    Strong problem-solving skills and team leadership experience.
+                </p>
+                
+                <h3 class="section-title">Skills</h3>
+                <div class="skills-container">
+                    <div class="skill-tag">JavaScript</div>
+                    <div class="skill-tag">React</div>
+                    <div class="skill-tag">Node.js</div>
+                    <div class="skill-tag">TypeScript</div>
+                    <div class="skill-tag">AWS</div>
+                    <div class="skill-tag">Docker</div>
+                    <div class="skill-tag">SQL</div>
+                    <div class="skill-tag">MongoDB</div>
+                    <div class="skill-tag">Agile Methodologies</div>
+                    <div class="skill-tag">Team Leadership</div>
+                </div>
+                
+                <h3 class="section-title">Experience</h3>
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div class="item-title">Senior Software Engineer</div>
+                        <div class="item-date">2019 - Present</div>
+                    </div>
+                    <div class="item-subtitle">TechSolutions Inc.</div>
+                    <p class="item-description">
+                        Lead a team of 5 developers to build enterprise-level applications. 
+                        Architected and implemented microservices using Node.js and React. 
+                        Improved application performance by 40% through optimization techniques.
+                    </p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div class="item-title">Software Engineer</div>
+                        <div class="item-date">2016 - 2019</div>
+                    </div>
+                    <div class="item-subtitle">Digital Innovations LLC</div>
+                    <p class="item-description">
+                        Developed and maintained web applications using Angular and .NET Core. 
+                        Collaborated with cross-functional teams to deliver high-quality software. 
+                        Implemented CI/CD pipelines reducing deployment time by 60%.
+                    </p>
+                </div>
+                
+                <h3 class="section-title">Education</h3>
+                <div class="education-item">
+                    <div class="item-header">
+                        <div class="item-title">Master of Computer Science</div>
+                        <div class="item-date">2014 - 2016</div>
+                    </div>
+                    <div class="item-subtitle">Stanford University</div>
+                    <p class="item-description">
+                        Specialized in Artificial Intelligence and Distributed Systems. 
+                        Graduated with honors (GPA: 3.8/4.0).
+                    </p>
+                </div>
+                
+                <h3 class="section-title">Contact Information</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-text">
+                            <div class="contact-label">Email</div>
+                            <div class="contact-value">michael.johnson@example.com</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-text">
+                            <div class="contact-label">Phone</div>
+                            <div class="contact-value">(555) 123-4567</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <div class="contact-label">Location</div>
+                            <div class="contact-value">San Francisco, CA</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🔗</div>
+                        <div class="contact-text">
+                            <div class="contact-label">LinkedIn</div>
+                            <div class="contact-value">linkedin.com/in/michaeljohnson</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Zenith Hire. All rights reserved.</p>
+            <p>Connecting talent with opportunity</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Edit profile button functionality
+            const editProfileBtn = document.getElementById('editProfileBtn');
+            
+            editProfileBtn.addEventListener('click', function() {
+                alert('Edit profile functionality would open a form in a real implementation.');
+                // In a real implementation, this would open a modal or redirect to an edit page
+            });
+            
+            // Simulate loading animation
+            const progressBar = document.querySelector('.progress-bar div');
+            let width = 0;
+            const interval = setInterval(function() {
+                if (width >= 85) {
+                    clearInterval(interval);
+                } else {
+                    width++;
+                    progressBar.style.width = width + '%';
+                }
+            }, 20);
+            
+            // Responsive menu toggle would be added here for mobile
+        });
+    </script>
+</body>
+</html>
