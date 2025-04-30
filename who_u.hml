@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block style %}
+<style>
+    .entire_body{
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url('https://i.pinimg.com/736x/4d/b5/3b/4db53bbd527bae4e0fa1a07567eb7f39.jpg'); 
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .content {
+        background-size: cover; 
+        background-position: center; 
+        padding: 40px;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.7);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 1);
+        text-align: center;
+        color: white; 
+        margin: auto; 
+        max-width: 600px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+
+    .button-container {
+        margin-top: 20px;
+    }
+
+    .button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 15px 30px;
+        font-size: 1.2em;
+        cursor: pointer;
+        margin: 10px;
+        transition: background-color 0.3s;
+    }
+
+    .button:hover {
+        background-color: #0056b3; 
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="entire_body">
+    <div class="content">
+        <h1>Are You here to:</h1>
+        <div class="button-container">
+            <a href="{{ url_for('signup_recruiter') }}" class="button">Post a Job</a> 
+            <a href="{{ url_for('signup_jobseeker') }}" class="button">Find a Job</a> 
+        </div>
+    </div>
+</div>
+
+{% endblock %}
