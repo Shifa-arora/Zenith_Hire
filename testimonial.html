@@ -1,0 +1,369 @@
+{% extends 'base.html' %}
+
+{% block style %}
+
+<style>
+    .testimonial-section {
+        width: 80%;
+        max-width: 1200px;
+        margin: auto;
+        padding: 20px;
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        font-size: 16px;
+    }
+
+    .testimonial-section h2 {
+        font-size: 2.8rem;
+        color: #fff;
+        margin-bottom: 40px;
+        font-weight: 700;
+    }
+
+   
+    .testimonial-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        margin-bottom: 30px;
+        padding: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeIn 0.5s forwards;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-card img {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 20px;
+    }
+
+    .testimonial-card .testimonial-content {
+        flex: 1;
+        text-align: left;
+    }
+
+    .testimonial-card h3 {
+        font-size: 1.6rem;
+        color: #3B74A2;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+
+    .testimonial-card p {
+        font-size: 1.1rem;
+        color: #555;
+        margin-bottom: 10px;
+        line-height: 1.5;
+    }
+
+    .testimonial-card button {
+        background-color: #e74c3c;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-size: 1rem;
+        display: none; /* Hidden by default */
+    }
+
+    .testimonial-card button:hover {
+        background-color: #c0392b;
+    }
+
+    /* Testimonial Form */
+    .testimonial-form {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 150px;
+    }
+
+    .testimonial-form h3 {
+        font-size: 2rem;
+        color: #3B74A2;
+        margin-bottom: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .testimonial-form input,
+    .testimonial-form textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        background-color: #f7f7f7;
+        color: #333;
+        font-size: 1rem;
+        transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+
+    .testimonial-form input:focus,
+    .testimonial-form textarea:focus {
+        border-color: #3B74A2;
+        background-color: #eef2f7;
+    }
+
+    .testimonial-form button {
+        background-color: #3B74A2;
+        color: white;
+        padding: 12px 30px;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%;
+    }
+
+    .testimonial-form button:hover {
+        background-color: #2b5f8e;
+    }
+
+    
+    @keyframes fadeIn {
+        0% { opacity: 0; transform: translateY(30px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+   
+    @media (max-width: 768px) {
+        .testimonial-section h2 {
+            font-size: 2.2rem;
+        }
+
+        .testimonial-form h3 {
+            font-size: 1.6rem;
+        }
+
+        .testimonial-card {
+            flex-direction: column;
+            align-items: flex-start;
+            width: 90%;
+        }
+    }
+</style>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block content %}
+
+<div class="testimonial-section">
+    <h2>From Job Hunt to Dream Job: Success Stories</h2>
+
+    
+    <div id="testimonialList">
+  
+    </div>
+
+
+    <div class="testimonial-form">
+        <h3>Submit Your Testimonial</h3>
+        <form id="testimonialForm">
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <textarea id="testimonial" name="testimonial" rows="5" maxlength="1000" required placeholder="Write your testimonial (max 1000 words)"></textarea>
+            <button type="submit">Submit Testimonial</button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block script %}
+
+<script>
+       
+    let testimonials = [
+        {
+            name: "Cerilla Grey",
+            contact: "cerilla.grey@gmail.com",
+            text: "Zenith Hire is the best platform to find job opportunities. I got hired in just two weeks thanks to their easy-to-use interface and great support!",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-ZHqWA3ajb0g2TmGMYzSoRpiR5HqjelAKfw&s"
+        },
+        {
+            name: "Jane Smith",
+            contact: "jane.smith@yahoo.com",
+            text: "Thanks to Zenith Hire, I found my dream job. The job matching system is spot on, and their customer service is top-notch!",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM8IIwKhMgGWPNxSUUqpWv3B3qEPR_Z5JLPw&s"
+        },
+        {
+            name: "Michael Johnson",
+            contact: "michael.johnson@gmail.com",
+            text: "I had a great experience using Zenith Hire. It helped me connect with companies that were a perfect fit for my skills and experience.",
+            image: "data:image/jpeg;base64,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"
+        },
+        {
+            name: "Anastasia Steel",
+            contact: "anastasia.steel@gmail.com",
+            text: "Choosing ZenithHire over any other platform was such an amazing option. I found my desired job within the span of two weeks",
+            image: "data:image/jpeg;base64,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",
+        },
+        {
+            name: "Vridhi",
+            contact: "vridhi12@gmail.com",
+            text: "Zenith Hire has made the job search process so much easier! The platform is incredibly intuitive and streamlined. Within days, I was able to connect with great companies and land interviews. Highly recommend it to anyone looking to accelerate their career!",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMqgfVfhJV5MqECz_LgQyWAQWXs0aNVwud_Q&s",
+        },
+        {
+            name: "Amit",
+            contact: "amit12@gmail.com",
+            text: " The job matching feature on Zenith Hire is fantastic. It doesn't just show random jobs but actually suggests roles that are aligned with my skills and career goals. It made my job search far more efficient, and I found my dream job thanks to them!",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4-BZj8ZbqiLYpjtcYtL21cw36yBT89fdzJg&s",
+        },
+        {
+            name: "Arun Patel",
+            contact: "arunpatel@gmail.com",
+            text: " Zenith Hire is a game changer. From personalized job recommendations to a clean interface, everything about the site is designed to make the job-hunting process as smooth as possible. I highly recommend it to anyone serious about advancing their career.",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbhFDTtJA9vuLWZbIrfZX0PawE-FgHnx53kQ&s",
+        },
+        
+    ];
+
+    
+    function renderTestimonials() {
+        const testimonialList = document.getElementById('testimonialList');
+        testimonialList.innerHTML = ''; 
+
+        testimonials.forEach((testimonial, index) => {
+            const card = document.createElement('div');
+            card.classList.add('testimonial-card');
+            
+       
+            card.innerHTML = `
+                <img src="${testimonial.image}" alt="User Profile">
+                <div class="testimonial-content">
+                    <h3>${testimonial.name}</h3>
+                    <p>${testimonial.text}</p>
+                </div>
+            `;
+            
+     
+            const submitter = "John Doe"; 
+            if (testimonial.name === submitter) {
+                const deleteButton = document.createElement('button');
+                deleteButton.innerText = "Delete";
+                deleteButton.onclick = function() {
+                    deleteTestimonial(index);
+                };
+                card.appendChild(deleteButton);
+            }
+
+            testimonialList.appendChild(card);
+        });
+    }
+
+    // Handle form submission
+    document.getElementById('testimonialForm').addEventListener('submit', function(e) {
+        e.preventDefault(); 
+
+        let name = document.getElementById('name').value;
+        let email = document.getElementById('email').value;
+        let testimonialText = document.getElementById('testimonial').value;
+
+        if (testimonialText) {
+          
+            const newTestimonial = {
+                name: name,
+                contact: email,
+                text: testimonialText,
+                image: "https://via.placeholder.com/80?text=User"
+            };
+            testimonials.push(newTestimonial);
+
+          
+            renderTestimonials();
+
+         
+            console.log(testimonials);
+
+          
+            document.getElementById('testimonialForm').reset();
+        } else {
+            alert('Please write your testimonial!');
+        }
+    });
+
+    
+    function deleteTestimonial(index) {
+        testimonials.splice(index, 1); 
+        renderTestimonials(); 
+    }
+
+  
+    renderTestimonials();
+</script>
+
+
+
+{% endblock %}
