@@ -35,12 +35,6 @@ ZenithHire is not just a tool; it’s a bridge between aspirations and opportuni
 2. **Browse job listings** – Explore a wide range of opportunities tailored to your qualifications.  
 3. **Apply directly to employers** – Submit applications effortlessly, without unnecessary intermediaries.  
 
-## **Installation**  
+......End....
 
-For developers who want to run ZenithHire locally:  
 
-```bash
-git clone <your-repository-URL>
-cd ZenithHire
-npm install
-npm start
