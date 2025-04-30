@@ -1,0 +1,240 @@
+{% extends 'base.html' %}
+
+
+
+{% block style %}
+
+<style>
+    .contact-container {
+        display: flex;
+        min-height: 100vh;
+        flex-wrap: wrap;
+    }
+
+
+    .contact-image {
+        flex: 1;
+        /* background-image: url('/static/images/logo.png'); */
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+        width: 100%;
+        border-radius: 8px 0 0 8px;
+        margin-top: 80px;
+    }
+
+
+    .contact-form-container {
+        flex: 1;
+        padding: 50px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 40px 40px 40px 40px;
+    }
+
+
+    .contact-form-container h2 {
+        font-size: 2.5rem;
+        color: #202936;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    .contact-form-container p {
+        font-size: 1.125rem;
+        color: #394354;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .form-group label {
+        font-weight: bold;
+        color: #202936;
+        margin-bottom: 8px;
+        font-size: 1rem;
+    }
+
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        box-sizing: border-box;
+    }
+
+
+    .form-group textarea {
+        height: 180px;
+        resize: none;
+    }
+
+
+    .submit-btn {
+        background-color: #202936;
+        color: white;
+        padding: 14px 25px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.125rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%;
+    }
+
+    .submit-btn:hover {
+        background-color: #394354;
+    }
+
+
+    .contact-info {
+        margin-top: 30px;
+        font-size: 1rem;
+        color: #394354;
+        text-align: left;
+    }
+
+    .contact-info strong {
+        color: #202936;
+    }
+
+
+    @media (max-width: 1024px) {
+        .contact-container {
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .contact-image {
+            width: 100%;
+            height: 300px;
+            margin-bottom: 20px;
+        }
+
+        .contact-form-container {
+            width: 100%;
+            padding: 20px;
+        }
+
+
+        .form-group label {
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            font-size: 1rem;
+        }
+
+        .submit-btn {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .contact-container {
+            flex-direction: column;
+        }
+
+        .contact-image {
+            width: 100%;
+            height: 250px;
+            margin-bottom: 20px;
+        }
+
+        .contact-form-container {
+            width: 100%;
+            padding: 15px;
+        }
+
+        .contact-form-container h2 {
+            font-size: 2rem;
+        }
+
+        .contact-form-container p {
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            font-size: 0.95rem;
+        }
+
+        .submit-btn {
+            font-size: 1rem;
+        }
+    }
+</style>
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block content %}
+<div class="contact-container">
+
+    <div class="contact-image">
+        <img src="{{url_for('static',filename='images/contactus.gif')}}" alt="contact_us">
+    </div>
+
+
+    <div class="contact-form-container">
+        <h2>Contact Us</h2>
+        <p>We'd love to hear from you! Please fill out the form below, and we will get in touch with you as soon as
+            possible.</p>
+            <form class="contact-form" action="{{ url_for('contact') }}" method="POST">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+{% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+        <ul class="flashes">
+        {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+        <script>
+            alert("{{ messages[0][1] }}");  
+        </script>
+    {% endif %}
+{% endwith %}
+
+
+{% endblock %}
