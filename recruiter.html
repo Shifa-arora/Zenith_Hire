@@ -1,1 +1,148 @@
+{% extends 'base.html' %}
+
+{% block style %}
+<style>
+    .entire_body {
+        height: 1400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-image: url('https://i.pinimg.com/736x/82/c4/98/82c49830e4426e0cec1ae7d8de82c262.jpg'); 
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: left;
+    }
+
+
+    
+    .signup-container {
+        color: white;
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.7);
+        /* Semi-transparent background */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .signup-container .form-group {
+        margin-bottom: 15px;
+    }
+
+    .signup-container .form-group input {
+        color: black;
+    }
+
+    .signup-container .form-group select {
+        color: black;
+    }
+
+    .signup-container .form-group textarea {
+        color: black;
+    }
+
+    .signup-container label {
+        font-weight: bold;
+    }
+
+    .signup-container .form-control {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .signup-container .submit-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .signup-container .submit-btn:hover {
+        background-color: #0056b3;
+    }
+
+    
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="entire_body">
+    <div class="signup-container">
+        <form method="POST" action="{{ url_for('signup_recruiter') }}">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" name="phone" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control" minlength="8" required>
+            </div>
+            <div class="form-group">
+                <label>Company Name</label>
+                <input type="text" name="company_name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Type of Business</label>
+                <select name="business_type" class="form-control" required>
+                    <option value="">Select</option>
+                    <option value="IT Services">IT Services</option>
+                    <option value="Consulting">Consulting</option>
+                    <option value="Manufacturing">Manufacturing</option>
+                    <option value="Retail">Retail</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Explain Your Business</label>
+                <textarea name="business_description" class="form-control" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>Website URL</label>
+                <input type="url" name="website" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>What Positions Are You Hiring For?</label>
+                <textarea name="positions_hiring" class="form-control" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="number_of_employees">Number of Employees</label>
+                <input type="number" id="number_of_employees" name="number_of_employees" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>How Did You Hear About Us?</label>
+                <select name="referral_source" class="form-control" required>
+                    <option value="">Select</option>
+                    <option value="Friend/Colleague">Friend/Colleague</option>
+                    <option value="Social Media">Social Media</option>
+                    <option value="Search Engine">Search Engine</option>
+                    <option value="Advertisement">Advertisement</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Additional Comments</label>
+                <textarea name="additional_comments" class="form-control" rows="4"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Sign Up</button>
+        </form>
+    </div>
+</div>
+
 
